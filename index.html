@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>graced. | coming soon</title>
+    <style>
+        /* Loading your custom brand font */
+        @font-face {
+            font-family: 'Officially Funky';
+            src: url('OfficiallyFunkyRegular.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        :root {
+            --primary: #fef7d2;   /* Cream Background */
+            --secondary: #770a1a; /* Ember Maroon */
+            --accent: #dae8f2;    /* Soft Blue Cloud */
+            --white-smoke: rgba(255, 255, 255, 0.6);
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: var(--primary);
+            font-family: 'Officially Funky', sans-serif;
+            color: var(--secondary);
+            text-transform: lowercase;
+            overflow: hidden;
+        }
+
+        /* SCENT CLOUD CONTAINER */
+        .scent-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            filter: blur(40px); /* Blurs gradients into soft smoke */
+            opacity: 0.6;
+        }
+
+        /* Individual smoke layers */
+        .smoke-trail {
+            position: absolute;
+            width: 800px;
+            height: 400px;
+            background: radial-gradient(ellipse at center, var(--accent) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: swirl 25s infinite alternate ease-in-out;
+        }
+
+        .smoke-trail:nth-child(2) {
+            background: radial-gradient(ellipse at center, var(--white-smoke) 0%, transparent 70%);
+            width: 600px;
+            height: 300px;
+            animation-duration: 18s;
+            animation-delay: -5s;
+            top: 20%;
+        }
+
+        .smoke-trail:nth-child(3) {
+            width: 900px;
+            height: 500px;
+            animation-duration: 30s;
+            bottom: 0;
+            right: -10%;
+            opacity: 0.4;
+        }
+
+        .container {
+            text-align: center;
+            padding: 2rem;
+            max-width: 800px;
+            z-index: 2; /* Sits above the smoke */
+        }
+
+        .logo {
+            max-width: 110px;
+            height: auto;
+            margin-bottom: 2rem;
+            opacity: 0.85;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        h1 {
+            font-size: 3.2rem;
+            margin: 0;
+            font-weight: normal;
+            letter-spacing: 2px;
+            opacity: 0.9;
+        }
+
+        .tagline {
+            font-size: 1.05rem;
+            margin-top: 1.5rem;
+            letter-spacing: 1.5px;
+            font-weight: 300;
+            opacity: 0.7;
+        }
+
+        .italic {
+            font-style: italic;
+            font-variant-ligatures: normal;
+            font-feature-settings: "liga" on, "salt" on;
+        }
+
+        /* ANIMATIONS */
+        @keyframes swirl {
+            0% { transform: translate(-10%, -10%) rotate(0deg) scale(1); }
+            50% { transform: translate(20%, 10%) rotate(15deg) scale(1.2); }
+            100% { transform: translate(-5%, 20%) rotate(-10deg) scale(0.9); }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-12px); }
+        }
+
+        /* Fade everything in gently on load */
+        .container {
+            animation: fadeInPage 4s ease-in-out;
+        }
+
+        @keyframes fadeInPage {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="scent-container">
+        <div class="smoke-trail"></div>
+        <div class="smoke-trail"></div>
+        <div class="smoke-trail"></div>
+    </div>
+
+    <div class="container">
+        <img src="Logomark - Ember@1.5x.png" alt="logo" class="logo">
+        
+        <h1>coming soon</h1>
+
+        <div class="tagline">
+            the <span class="italic">signature</span> of what it feels to be <span class="italic">graced.</span>
+        </div>
+    </div>
+
+</body>
+</html>
